@@ -47,6 +47,8 @@ group :development, :test do
   gem 'rubycritic', require: false
   # Use rubocop for static code analyis
   gem 'rubocop', require: false
+  # Use rspec for automated testing
+  gem 'rspec-rails'
   # Use simplecov for test coverage
   gem 'simplecov', require: false
   # Use yarn and yardstick for documentation
