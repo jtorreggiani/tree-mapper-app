@@ -43,6 +43,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Enforce rails best practices
   gem 'rails_best_practices'
+  # Use rubycritic for static code analyis
+  gem 'rubycritic', require: false
   # Use rubocop for static code analyis
   gem 'rubocop', require: false
   # Use simplecov for test coverage
