@@ -41,6 +41,8 @@ group :development, :test do
   gem 'brakeman'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # Enforce rails best practices
+  gem 'rails_best_practices'
   # Use rubocop for static code analyis
   gem 'rubocop', require: false
   # Use simplecov for test coverage
