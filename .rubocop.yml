@@ -6,6 +6,9 @@ AllCops:
     - lib/templates/rails/helper/*
     - lib/templates/active_record/model/*
     - app/channels
+    - node_modules/**/*
+    - bin/webpack
+    - bin/webpack-dev-server
 Metrics/LineLength:
   Max: 160
 Style/BlockComments:
