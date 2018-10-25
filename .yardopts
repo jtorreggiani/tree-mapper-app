@@ -1,0 +1,2 @@
+--exclude app/channels/application_cable/
+--exclude bin/
