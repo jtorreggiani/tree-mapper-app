@@ -55,6 +55,8 @@ group :development, :test do
 end
 
 group :development do
+  # Use bullet to trackdown N+1 queries
+  gem 'bullet'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Spring speeds up development by keeping your application
