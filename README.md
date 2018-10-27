@@ -16,6 +16,7 @@ cd skeleton
 - node
 - yarn
 - sqlite3
+- chromdriver
 
 ## Setup
 
@@ -39,6 +40,8 @@ Run rails setup script
 - webpacker
 - capybara
 - pry-rails
+- cucumber-rails
+- selenium-webdriver
 
 ## Development Environment
 
@@ -60,8 +63,6 @@ def index
 end
 ```
 
-
-
 ## Automated Testing
 
 Run the tests
@@ -80,6 +81,14 @@ View test coverage
 
 ```sh
 open coverage/index.html
+```
+
+## Acceptance Testing
+
+Run acceptance tests
+
+```sh
+bundle exec cucumber
 ```
 
 ## Static Code Analysis

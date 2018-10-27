@@ -40,7 +40,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'webpacker', '~> 3.5'
 
 group :development, :test do
+  # Required integration tests
   gem 'capybara'
+  # Add cucumber for writing acceptance tests
+  gem 'cucumber-rails', require: false
   # Use brakeman for security analysis
   gem 'brakeman'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,6 +56,8 @@ group :development, :test do
   gem 'rubocop', require: false
   # Use rspec for automated testing
   gem 'rspec-rails'
+  # Use selenium webdriver for running integration tests
+  gem 'selenium-webdriver'
   # Use simplecov for test coverage
   gem 'simplecov', require: false
   # Use yarn and yardstick for documentation

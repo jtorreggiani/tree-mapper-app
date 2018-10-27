@@ -2,7 +2,6 @@
 class SearchController < ApplicationController
   # search results page
   # @api public
-  # @param [String] search_param query for request
   # @example GET /search
   # @return renders index
   def index

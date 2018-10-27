@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Searching for posts', type: :feature do
-  scenario 'User submits a valid query' do
+  scenario 'User submits a valid search' do
     visit '/'
 
     fill_in 'Search for:', with: 'qui'

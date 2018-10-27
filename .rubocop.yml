@@ -9,6 +9,7 @@ AllCops:
     - node_modules/**/*
     - bin/webpack
     - bin/webpack-dev-server
+    - lib/tasks/cucumber.rake
 Metrics/LineLength:
   Max: 160
 Style/BlockComments:
