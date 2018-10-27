@@ -9,4 +9,12 @@ RSpec.feature 'Searching for posts', type: :feature do
 
     expect(page).to have_text('est rerum tempore vitae sequi sint nihil')
   end
+
+  scenario 'User clicks the alert button', js: true do
+    visit '/'
+
+    click_button 'Display Alert'
+
+    expect(page.driver.browser.switch_to.alert.text).to eq('Example Alert')
+  end
 end
