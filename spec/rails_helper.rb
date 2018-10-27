@@ -42,21 +42,6 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-Capybara.register_driver(:chrome) do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
-Capybara.register_driver(:headless_chrome) do |app|
-  options        = { args: %w[headless disable-gpu] }
-  capabilities   = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: options)
-
-  Capybara::Selenium::Driver.new(app,
-                                 browser: :chrome,
-                                 desired_capabilities: capabilities)
-end
-
-Capybara.javascript_driver = :headless_chrome
-
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

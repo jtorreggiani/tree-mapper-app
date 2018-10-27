@@ -1,3 +1,6 @@
+require 'capybara'
+require 'selenium-webdriver'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -44,3 +47,22 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
+
+
+# Register Chrome as the default driver
+Capybara.register_driver(:chrome) do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+# Configure chrome to run in headless mode
+Capybara.register_driver(:headless_chrome) do |app|
+  options        = { args: %w[headless disable-gpu] }
+  capabilities   = Selenium::WebDriver::Remote::Capabilities.chrome(chromeOptions: options)
+
+  Capybara::Selenium::Driver.new(app,
+                                 browser: :chrome,
+                                 desired_capabilities: capabilities)
+end
+
+# Set javascript driver to headless chrome
+Capybara.javascript_driver = :headless_chrome
