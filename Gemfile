@@ -57,6 +57,8 @@ group :development, :test do
   gem 'rubocop', require: false
   # Use rspec for automated testing
   gem 'rspec-rails'
+  # Required for format test output for CI
+  gem 'rspec_junit_formatter'
   # Use selenium webdriver for running integration tests
   gem 'selenium-webdriver'
   # Use simplecov for test coverage
