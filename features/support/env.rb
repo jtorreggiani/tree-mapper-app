@@ -5,6 +5,7 @@
 # files.
 
 require 'cucumber/rails'
+require 'selenium/webdriver'
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -30,11 +31,11 @@ ActionController::Base.allow_rescue = false
 
 # Remove/comment out the lines below if your app doesn't have a database.
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
-# begin
-#   DatabaseCleaner.strategy = :transaction
-# rescue NameError
-#   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
-# end
+begin
+  DatabaseCleaner.strategy = :transaction
+rescue NameError
+  raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
+end
 
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
 # See the DatabaseCleaner documentation for details. Example:
@@ -57,8 +58,19 @@ ActionController::Base.allow_rescue = false
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 # Register Chrome as the default driver
-Capybara.register_driver :chrome do |app|
+Capybara.register_driver(:chrome) do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-Capybara.javascript_driver = :chrome
+Capybara.register_driver(:headless_chrome) do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: { args: %w(headless disable-gpu) }
+  )
+
+  Capybara::Selenium::Driver.new(app,
+    browser: :chrome,
+    desired_capabilities: capabilities
+  )
+end
+
+Capybara.javascript_driver = :headless_chrome
