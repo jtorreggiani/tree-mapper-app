@@ -143,6 +143,10 @@ Run best practices tool
 bundle exec rails_best_practices .
 ```
 
+## Continuous Integration (CI)
+
+Continuous Integration is the practice of merging code into the master version control branch at any time during they day. For default CI strategy for this application is CircleCI. The CI progress is configured in `.circleci/config.yml`.
+
 ## Deployment
 
 The default deployment strategy for the application is Heroku. Future tutorials will demonstrate deployment to different IaaS providers like AWS and Google Cloud. To get started make sure you have the Heroku CLI installed. Instructions for getting the CLI can be found [here](https://devcenter.heroku.com/articles/heroku-cli).
