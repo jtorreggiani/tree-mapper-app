@@ -3,10 +3,9 @@
 # @example alert_present?
 # @return [Boolean]
 def alert_present?
-  begin
-    page.driver.browser.switch_to.alert
-    true
-  rescue
-    false
-  end
+  page.driver.browser.switch_to.alert
+  true
+rescue StandardError => error
+  puts error
+  false
 end

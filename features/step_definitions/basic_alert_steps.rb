@@ -1,5 +1,3 @@
-require "pry"
-
 When(/^I click on the alert button$/) do
   click_button('Display Alert')
 end
