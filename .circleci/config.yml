@@ -66,7 +66,7 @@ jobs:
 
       # Run rspec in parallel
       - run:
-          name: Run rspec in parallel
+          name: Run rspec
           command: |
             bundle exec rspec --profile 10 \
                               --format RspecJunitFormatter \
@@ -76,15 +76,21 @@ jobs:
 
       # Run rubocop in parallel
       - run:
-          name: Run rubocop in parallel
+          name: Run rubocop
           command: |
             bundle exec rubocop
 
       # Run brakeman in parallel
       - run:
-          name: Run brakeman in parallel
+          name: Run brakeman
           command: |
             bundle exec brakeman --exit-on-warn .
+
+      # Run rails best practices in parallel
+      - run:
+          name: Run rails best practices
+          command: |
+            bundle exec rails_best_practices .
 
       # Save test results for timing analysis
       - store_test_results:
