@@ -63,8 +63,9 @@ group :development, :test do
   gem 'selenium-webdriver'
   # Use simplecov for test coverage
   gem 'simplecov', require: false
-  # Use yarn and yardstick for documentation
+  # Use yard for automatically generating documentation
   gem 'yard'
+  # Use yardstick for measure documentation coverage
   gem 'yardstick'
 end
 
