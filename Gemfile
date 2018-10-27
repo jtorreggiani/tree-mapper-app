@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
-ruby '2.2.2'
-
+# Explicitly declare ruby version
+ruby '2.5.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -40,6 +39,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'webpacker', '~> 3.5'
 
 group :development, :test do
+  # Database cleaner
+  gem 'database_cleaner'
   # Required integration tests
   gem 'capybara'
   # Add cucumber for writing acceptance tests
