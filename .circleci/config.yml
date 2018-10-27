@@ -64,6 +64,12 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load --trace
 
+      # Run cucumber in parallel
+      - run:
+          name: Run cucumber
+          command: |
+            bundle exec cucumber --format junit --out test_results/cucumber.xml
+
       # Run rspec in parallel
       - run:
           name: Run rspec
