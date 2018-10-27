@@ -1,12 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'simplecov'
 
-# Save to CircleCI's artifacts directory if we're on CircleCI
-if ENV['CIRCLE_ARTIFACTS']
-  dir = File.join(ENV['CIRCLE_ARTIFACTS'], 'coverage')
-  SimpleCov.coverage_dir(dir)
-end
-
 SimpleCov.start
 
 require 'spec_helper'
@@ -16,9 +10,7 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'rspec/rails'
-
 require 'capybara/rspec'
-
 require 'pry'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -88,4 +80,16 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Fail on reduction in code coverage
+  # http://my-codeworks.com/blog/failing-an-rspec-suite-on-poor-code-coverage-2015-8-1
+  config.after(:suite) do
+    example_group = RSpec.describe('Code coverage')
+
+    example_group.example('must be above 100%') do
+      expect(SimpleCov.result.covered_percent).to be > 90
+    end
+
+    example_group.run(RSpec.configuration.reporter)
+  end
 end
