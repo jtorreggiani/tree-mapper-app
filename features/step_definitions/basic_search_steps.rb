@@ -1,4 +1,4 @@
-Then(/^I fill in the search form$/) do
+When(/^I fill in the search form$/) do
   fill_in('Search for:', with: 'qui')
 end
 
