@@ -18,9 +18,10 @@ class SearchController < ApplicationController
 
   private
 
+  # search value provided
   # @api private
   # @example search_param
-  # @return permited search param
+  # @return permitted query param
   def search_param
     params[:q]
   end
