@@ -10,6 +10,7 @@ AllCops:
     - bin/webpack
     - bin/webpack-dev-server
     - lib/tasks/cucumber.rake
+    - bin/yarn
 Metrics/LineLength:
   Max: 160
 Style/BlockComments:
@@ -21,3 +22,5 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Exclude:
     - spec/support/omniauth.rb
+Style/FrozenStringLiteralComment:
+  Enabled: false
