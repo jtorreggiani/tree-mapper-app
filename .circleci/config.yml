@@ -74,6 +74,11 @@ jobs:
                               --format progress \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
+      # Run rubocop in parallel
+      - run:
+          name: Run rubocop in parallel
+          command: |
+            bundle exec rubocop
 
       # Save test results for timing analysis
       - store_test_results:
