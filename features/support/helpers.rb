@@ -5,7 +5,6 @@
 def alert_present?
   page.driver.browser.switch_to.alert
   true
-rescue StandardError => error
-  puts error
+rescue # rubocop:disable Style/RescueStandardError
   false
 end
