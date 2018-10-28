@@ -86,10 +86,12 @@ RSpec.configure do |config|
   config.after(:suite) do
     example_group = RSpec.describe('Code coverage')
 
-    example_group.example('must be above 100%') do
-      expect(SimpleCov.result.covered_percent).to be > 90
+    example_group.example('must be above 90%') do
+      expect(SimpleCov.result.covered_percent).to be >= 100
     end
 
     example_group.run(RSpec.configuration.reporter)
   end
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
 end
