@@ -38,6 +38,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use webpacker for managing JavaScript dependencies
 gem 'webpacker', '~> 3.5'
 
+# Use devise for authentication
+gem 'devise'
+
 group :development, :test do
   # Database cleaner
   gem 'database_cleaner'

@@ -43,6 +43,7 @@ Run rails setup script
 - pry-rails
 - cucumber-rails
 - selenium-webdriver
+- devise
 
 ## Development Environment
 
