@@ -1,16 +1,17 @@
 AllCops:
   Exclude:
-    - db/**/*
-    - vendor/**/*
-    - lib/templates/rails/scaffold_controller/*
-    - lib/templates/rails/helper/*
-    - lib/templates/active_record/model/*
     - app/channels
-    - node_modules/**/*
+    - app/controllers/users/sessions_controller.rb
     - bin/webpack
     - bin/webpack-dev-server
-    - lib/tasks/cucumber.rake
     - bin/yarn
+    - db/**/*
+    - lib/tasks/cucumber.rake
+    - lib/templates/active_record/model/*
+    - lib/templates/rails/helper/*
+    - lib/templates/rails/scaffold_controller/*
+    - node_modules/**/*
+    - vendor/**/*
 Metrics/LineLength:
   Max: 160
 Style/BlockComments:

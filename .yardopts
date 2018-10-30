@@ -1,2 +1,3 @@
 --exclude bin/
+--exclude db/migrate
 --private

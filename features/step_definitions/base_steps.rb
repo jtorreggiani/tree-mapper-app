@@ -27,7 +27,19 @@ When(/^I fill in the "(.*?)" field with "(.*?)"$/) do |label, input|
 end
 
 Given(/^I am an existing user named John Smith$/) do
-  User.create!(email: 'johnsmith@example.com',
-               password: 'password123',
-               password_confirmation: 'password123')
+  create_john_smith
+end
+
+Given(/^the user John Smith exists$/) do
+  create_john_smith
+end
+
+And(/^I am signed in as John Smith$/) do
+  user = create_john_smith
+  sign_in_user(user)
+end
+
+Given(/^I am on the "(.*?)" page$/) do |page|
+  page_name = page.downcase.split(' ').join('_')
+  visit("/#{page_name}")
 end
