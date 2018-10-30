@@ -91,6 +91,8 @@ RSpec.configure do |config|
     end
 
     example_group.run(RSpec.configuration.reporter)
+
+    SimpleCov.result.format!
   end
 
   config.include Devise::Test::ControllerHelpers, type: :controller

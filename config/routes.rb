@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   }
 
   get 'search', to: 'search#index'
-  get '/:username', to: 'users/profile#show'
+
+  get '/:username', to: 'users/profile#show', as: 'profile'
+
   root 'welcome#index'
 end
