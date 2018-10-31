@@ -9,16 +9,22 @@ rescue # rubocop:disable Style/RescueStandardError
   false
 end
 
-# helper method to create "John Smith" user
+# helper method to create "[UserName] Smith" user
 # @api public
-# @example create_john_smith
-# @return [Object] example user object
-def create_john_smith
-  User.create!(email: 'johnsmith@example.com',
+# @param name [String] name of user
+# @example create_name_smith(name)
+# @return [Object] an example user object
+def create_user(name)
+  name_array = name.split(' ')
+  firstname = name_array[0]
+  lastname = name_array[1]
+  username = "#{firstname.downcase}#{lastname.downcase}"
+
+  User.create!(email: "#{username}@example.com",
                password_confirmation: 'password123',
                password: 'password123',
-               username: 'johnsmith',
-               name: 'John Smith')
+               username: username,
+               name: "#{firstname} #{lastname}")
 end
 
 # helper method to sign in users during tests
