@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  get 'users', to: 'users/list#index', as: 'users_list'
+
   get 'search', to: 'search#index'
 
   get '/:username', to: 'users/profile#show', as: 'profile'
