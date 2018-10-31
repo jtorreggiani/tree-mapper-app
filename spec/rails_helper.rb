@@ -2,7 +2,7 @@
 require 'simplecov'
 
 SimpleCov.start do
-  add_filter "features/support/helpers.rb"
+  add_filter 'features/support/helpers.rb'
 end
 
 require 'spec_helper'
