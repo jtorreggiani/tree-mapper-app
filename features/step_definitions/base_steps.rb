@@ -10,6 +10,10 @@ Then(/^I see the text "(.*?)"$/) do |text|
   expect(page).to have_content(/#{text}/i)
 end
 
+Then(/^I do not see the text "(.*?)"$/) do |text|
+  expect(page).to_not have_content(/#{text}/i)
+end
+
 Then(/^I see an alert with the text "(.*?)"$/) do |text|
   expect(page.driver.browser.switch_to.alert.text).to eq(text)
 end
@@ -26,16 +30,12 @@ When(/^I fill in the "(.*?)" field with "(.*?)"$/) do |label, input|
   fill_in(label, with: input)
 end
 
-Given(/^I am an existing user named John Smith$/) do
-  create_john_smith
+Given(/^the user "(.*?)" exists$/) do |name|
+  create_user(name)
 end
 
-Given(/^the user John Smith exists$/) do
-  create_john_smith
-end
-
-And(/^I am signed in as John Smith$/) do
-  user = create_john_smith
+And(/^I am signed in as "(.*?)"$/) do |name|
+  user = create_user(name)
   sign_in_user(user)
 end
 
