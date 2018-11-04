@@ -39,7 +39,7 @@ And(/^I am signed in as "(.*?)"$/) do |name|
   sign_in_user(user)
 end
 
-Given(/^I am on the "(.*?)" page$/) do |page|
-  page_name = page.downcase.split(' ').join('_')
+Given(/^I am on the "(.*?)" page$/) do |page_name_text|
+  page_name = page_name_text.downcase.split(' ').join('_')
   visit("/#{page_name}")
 end

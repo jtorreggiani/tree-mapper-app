@@ -7,13 +7,17 @@ module Users
     # @example GET /username
     # @return renders show
     def show
-      @user = User.where(username: params[:username]).first
-
-      if @user.nil?
-        redirect_to root_path
-      else
+      if profile_user
         render :show
+      else
+        redirect_to root_path
       end
+    end
+
+    private
+
+    def profile_user
+      @profile_user ||= User.where(username: params[:username]).first
     end
   end
 end

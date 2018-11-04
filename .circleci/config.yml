@@ -99,10 +99,10 @@ jobs:
             bundle exec rails_best_practices .
 
       # Run yardstick in parallel
-      # - run:
-      #     name: Run yardstick
-      #     command: |
-      #       bundle exec yardstick .
+      - run:
+          name: Run yardstick
+          command: |
+            bundle exec yardstick app
 
       # Save test results for timing analysis
       - store_test_results:

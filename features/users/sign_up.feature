@@ -1,7 +1,9 @@
 Feature: Signing up
 
   Scenario: User signs up
-    Given I am on the sign up page
+    Given I am on the "sign up" page
+    When I fill in the "Name" field with "Joe Torreggiani"
+    When I fill in the "Username" field with "jtorreggiani"
     When I fill in the "Email" field with "joetorreggiani@gmail.com"
     And I fill in the "Password" field with "password123"
     And I fill in the "Password confirmation" field with "password123"
