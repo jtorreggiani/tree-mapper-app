@@ -32,7 +32,7 @@ end
 # @example sign_in_user(user)
 # @return [nil]
 def sign_in_user(user)
-  visit '/users/sign_in'
+  visit '/sign_in'
   fill_in 'Email', with: user.email
   fill_in 'Password', with: 'password123'
   click_button 'Log in'

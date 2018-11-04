@@ -1,7 +1,6 @@
 AllCops:
   Exclude:
     - app/channels
-    - app/controllers/users/sessions_controller.rb
     - bin/webpack
     - bin/webpack-dev-server
     - bin/yarn
