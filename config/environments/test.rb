@@ -48,7 +48,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 end
 
-
 # Register Chrome as the default driver
 Capybara.register_driver(:chrome) do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)

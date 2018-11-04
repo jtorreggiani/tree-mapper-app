@@ -2,6 +2,7 @@
 require 'simplecov'
 
 SimpleCov.start do
+  add_filter 'config/environments/test.rb'
   add_filter 'features/support/helpers.rb'
   add_filter 'app/controllers/users/sessions_controller.rb'
   add_filter 'app/controllers/users/registrations_controller.rb'

@@ -34,9 +34,12 @@ Given(/^the user "(.*?)" exists$/) do |name|
   create_user(name)
 end
 
+And(/^a post with the title of "(.*?)" exists$/) do |title|
+  create_example_post(title)
+end
+
 And(/^I am signed in as "(.*?)"$/) do |name|
-  user = create_user(name)
-  sign_in_user(user)
+  sign_in_user(name)
 end
 
 Given(/^I am on the "(.*?)" page$/) do |page_name_text|
