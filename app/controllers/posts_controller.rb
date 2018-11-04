@@ -2,26 +2,39 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
-  # GET /posts
-  # GET /posts.json
+  # lists all posts
+  # @api public
+  # @example GET /posts
+  # @return renders index
   def index
     @posts = Post.all
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
+  # renders an individual post
+  # @api public
+  # @example GET /posts/1
+  # @return renders show
   def show; end
 
-  # GET /posts/new
+  # renders new post page
+  # @api public
+  # @example GET /posts/new
+  # @return renders new
   def new
     @post = Post.new
   end
 
-  # GET /posts/1/edit
+  # renders edit page for post
+  # @api public
+  # @example GET /posts/1/edit
+  # @return renders edit
   def edit; end
 
-  # POST /posts
-  # POST /posts.json
+  # action to create a post record
+  # @api public
+  # @param post_params [Hash] strong params for posts
+  # @example POST /posts POST /posts.json
+  # @return renders show or new
   def create
     @post = Post.new(post_params)
 
@@ -36,8 +49,11 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
+  # action to update a post
+  # @api public
+  # @param post_params [Hash] strong params for posts
+  # @example PATCH/PUT /posts/1 or /posts/1.json
+  # @return renders show or edit
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -50,8 +66,10 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
+  # action to destroy a post record
+  # @api public
+  # @example DELETE /posts/1 or /posts/1.json
+  # @return renders show or edit
   def destroy
     @post.destroy
     respond_to do |format|
@@ -62,12 +80,20 @@ class PostsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  # sets the post instance variable given an id param
+  # @api private
+  # @param post_params [Hash] strong params for posts
+  # @example set_p
+  # @return [Record] post object
   def set_post
     @post = Post.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the internet, only allow the white list through
+  # @api private
+  # @param params [Hash] {title, body}
+  # @example post_params
+  # @return [Record] post param
   def post_params
     params.require(:post).permit(:title, :body)
   end
