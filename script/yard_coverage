@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+output = `bundle exec yardstick app | tail -1`
+threshold = output.split(' ')[1].delete('%').to_f
+
+if threshold < 100
+  puts 'Below coverage threshold'
+  exit 1
+end

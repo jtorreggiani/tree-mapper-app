@@ -100,9 +100,9 @@ jobs:
 
       # Run yardstick in parallel
       - run:
-          name: Run yardstick
+          name: Run yardstick coverage
           command: |
-            bundle exec yardstick app
+            ./script/yard_coverage
 
       # Save test results for timing analysis
       - store_test_results:

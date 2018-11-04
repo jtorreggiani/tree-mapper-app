@@ -16,6 +16,9 @@ module Users
 
     private
 
+    # sets profile user var
+    # @api private
+    # @return user for username param
     def profile_user
       @profile_user ||= User.where(username: params[:username]).first
     end
