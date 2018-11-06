@@ -6,19 +6,19 @@
     <%= csrf_meta_tags %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag    'application' %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <% flash.each do |type, message| %>
-      <div class="alert" role="alert">
+      <div id="<%= type %>" class="alert" role="alert">
         <%= message %>
       </div>
     <% end %>
 
+    <%= link_to('Posts', posts_path) %>
     <% if user_signed_in? %>
-      <%= link_to('Posts', posts_path) %>
       <%= link_to('Users', users_list_path) %>
       <%= link_to('Profile', root_path + current_user.username) %>
       <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>

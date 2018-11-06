@@ -12,7 +12,6 @@ RSpec.describe 'posts/index', type: :view do
   it 'renders a list of posts' do
     render
     assert_select 'h2', text: 'Title', count: 2
-
-    assert_select 'div>p', text: 'MyText', count: 2
+    assert_select 'p', text: 'MyText', count: 2
   end
 end
