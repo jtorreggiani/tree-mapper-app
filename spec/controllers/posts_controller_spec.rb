@@ -36,6 +36,10 @@ RSpec.describe PostsController, type: :controller do
     { title: nil, body: 'Example body' }
   end
 
+  let(:user) { create_user('John Smith') }
+
+  before { sign_in(user) }
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # PostsController. Be sure to keep this updated too.

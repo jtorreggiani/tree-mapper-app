@@ -86,7 +86,7 @@ class PostsController < ApplicationController
   # @example set_p
   # @return [Record] post object
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.includes(:user).find(params[:id])
   end
 
   # Never trust parameters from the internet, only allow the white list through
@@ -95,6 +95,6 @@ class PostsController < ApplicationController
   # @example post_params
   # @return [Record] post param
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body).merge(user_id: current_user.id)
   end
 end

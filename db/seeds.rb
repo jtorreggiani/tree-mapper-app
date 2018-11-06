@@ -8,7 +8,7 @@
 #   movies = Movie.create(hashes)
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name: 'Joe Torreggiani',
+user = User.create!(name: 'Joe Torreggiani',
              username: 'jtorreggiani',
              email: 'joetorreggiani@gmail.com',
              password: 'password',
@@ -25,4 +25,4 @@ consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit ess
 vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 POST_TEXT
 
-Post.create!(title: 'First post', body: post_text)
+user.posts.create!(title: 'First post', body: post_text)
