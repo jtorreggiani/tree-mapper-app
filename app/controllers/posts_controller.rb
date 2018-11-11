@@ -1,13 +1,13 @@
 # Controller for rendering posts related pages
 class PostsController < ApplicationController
+  before_action :filter_posts, only: %i[index]
   before_action :set_post, only: %i[show edit update destroy]
 
   # lists all posts
   # @api public
-  # @example GET /posts
+  # @example GET /posts?query=dope
   # @return renders index
   def index
-    @posts = Post.all
   end
 
   # renders an individual post
@@ -87,6 +87,18 @@ class PostsController < ApplicationController
   # @return [Record] post object
   def set_post
     @post = Post.includes(:user).find(params[:id])
+  end
+
+  def filter_posts
+    @posts = if query_param
+      Post.search(query_param).first(10)
+    else
+      Post.last(10)
+    end
+  end
+
+  def query_param
+    params[:query]
   end
 
   # Never trust parameters from the internet, only allow the white list through
