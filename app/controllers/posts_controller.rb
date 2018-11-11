@@ -88,6 +88,10 @@ class PostsController < ApplicationController
     @post = Post.includes(:user).find(params[:id])
   end
 
+  # sets filters posts and sets @posts instance variable
+  # @api private
+  # @example filter_posts
+  # @return [Array]
   def filter_posts
     @posts = if query_param
                Post.search(query_param).first(10)
@@ -96,13 +100,17 @@ class PostsController < ApplicationController
              end
   end
 
+  # gets the query string out of the params
+  # @api private
+  # @example query_param
+  # @return [String] query string
   def query_param
     params[:query]
   end
 
   # Never trust parameters from the internet, only allow the white list through
   # @api private
-  # @param params [Hash] {title, body}
+  # @param params [Object] the request parameters
   # @example post_params
   # @return [Record] post param
   def post_params

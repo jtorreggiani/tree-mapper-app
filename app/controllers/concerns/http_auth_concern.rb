@@ -5,6 +5,10 @@ module HttpAuthConcern
     before_action :http_authenticate
   end
 
+  # checks authentication
+  # @api public
+  # @example http_authenticate
+  # @return [nil]
   def http_authenticate
     return true unless Rails.env == 'production'
 
