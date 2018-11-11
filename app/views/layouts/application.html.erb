@@ -18,6 +18,7 @@
     <% end %>
 
     <% if user_signed_in? %>
+      <%= link_to('Posts', posts_path) %>
       <%= link_to('Users', users_list_path) %>
       <%= link_to('Profile', root_path + current_user.username) %>
       <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
