@@ -20,7 +20,8 @@ module Users
     # @api private
     # @return user for username param
     def profile_user
-      @profile_user ||= User.where(username: params[:username]).first
+      user = User.where(username: params[:username]).includes(:posts).first
+      @profile_user ||= user
     end
   end
 end

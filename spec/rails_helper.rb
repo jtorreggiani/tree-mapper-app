@@ -4,6 +4,7 @@ require 'simplecov'
 SimpleCov.start do
   add_filter 'config/environments/test.rb'
   add_filter 'features/support/helpers.rb'
+  add_filter 'app/controllers/concerns/http_auth_concern.rb'
   add_filter 'app/controllers/users/sessions_controller.rb'
   add_filter 'app/controllers/users/registrations_controller.rb'
 end
@@ -53,6 +54,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
@@ -87,6 +90,4 @@ RSpec.configure do |config|
 
     SimpleCov.result.format!
   end
-
-  config.include Devise::Test::ControllerHelpers, type: :controller
 end

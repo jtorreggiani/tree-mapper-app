@@ -11,17 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
   <div class="actions">
+    <br/>
     <%= form.submit %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :title, class: 'title-input', placeholder: 'Title' %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :body, class: 'body-input', placeholder: 'In a galaxy far way...' %>
   </div>
 <% end %>

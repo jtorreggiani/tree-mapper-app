@@ -61,3 +61,10 @@ def sign_in_user(full_name)
   fill_in 'Password', with: 'password123'
   click_button 'Log in'
 end
+
+def create_fake_posts(number)
+  number.to_i.times do
+    Post.create!(title: Faker::Lorem.sentence,
+                 body: Faker::Lorem.paragraphs(2))
+  end
+end

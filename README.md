@@ -19,6 +19,12 @@ cd skeleton
 - chromdriver
 - heroku
 
+## Data Model
+
+- User
+- Post
+
+
 ## Setup
 
 Run rails setup script

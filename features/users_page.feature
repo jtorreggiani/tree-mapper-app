@@ -1,4 +1,4 @@
-Feature: User list
+Feature: Users page
 
   Background:
     Given the user "John Smith" exists
@@ -7,11 +7,11 @@ Feature: User list
   Scenario: Authenticated user views user list
     Given I am signed in as "John Smith"
     And I am on the "users" page
-    Then I see the text "John Smith"
-    And I see the text "Jane Smith"
+    Then I should see the text "John Smith"
+    And I should see the text "Jane Smith"
 
   Scenario: Unauthenticated views user list
     Given I am on the "users" page
-    Then I see the text "You need to sign in or sign up before continuing"
-    And I do not see the text "John Smith"
-    And I do not see the text "Jane Smith"
+    Then I should see the text "You need to sign in or sign up before continuing"
+    And I should not see the text "John Smith"
+    And I should not see the text "Jane Smith"

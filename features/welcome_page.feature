@@ -1,4 +1,4 @@
-Feature: Welcome page date
+Feature: Welcome page
 
   Scenario: User checks the date
     Given I am on the welcome page

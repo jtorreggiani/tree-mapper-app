@@ -1,11 +1,2 @@
-<p id="notice"><%= notice %></p>
-
-<% @posts.each do |post| %>
-  <div>
-    <h2><%= post.title %></h2>
-    <p>
-      <%= post.body.truncate(300, omission: '... ') %>
-      <%= post.body.length > 300 ? link_to("Read More", post) : '' %>
-    </p>
-  </div>
-<% end %>
+<%= render "search_form", posts: @posts -%>
+<%= render "list", posts: @posts -%>

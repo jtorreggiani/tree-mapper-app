@@ -1,23 +1,17 @@
-<div class="profile">
-  <br/>
-
-  <div>
-    <% if user_signed_in? && current_user.username == params[:username] %>
-      <%= link_to "Edit Profile", edit_user_registration_path %>
-      <br />
-      <br />
-    <% end %>
-  </div>
-
-  <div>
-    <label>Name</label><br/>
-    <span><%= @profile_user.name %></span>
-  </div>
-
-  <br/>
-
-  <div>
-    <label>Email</label><br/>
-    <span><%= @profile_user.email %></span>
-  </div>
+<div class="profile-header">
+  <h1 class="full-name">
+    <%= @profile_user.name %>
+  </h1>
+  <% if user_signed_in? && current_user.username == params[:username] %>
+    <%= link_to "Edit Profile", edit_user_registration_url, class: 'edit-profile' %>
+  <% end %>
 </div>
+
+<strong><%= @profile_user.email %></strong>
+
+<h2>Posts</h2>
+<% if user_signed_in? && current_user.username == params[:username] %>
+  <%= link_to "New Post", new_post_path %>
+<% end %>
+
+<%= render partial: "posts/list", locals: { posts: @profile_user.posts } %>

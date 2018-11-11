@@ -1,0 +1,16 @@
+<% posts.each do |post| %>
+  <h2>
+    <% if user_signed_in? && current_user.username == params[:username] %>
+      <%= link_to post.title, edit_post_path(post) %>
+    <% else %>
+      <%= post.title %>
+    <% end %>
+  </h2>
+  <% if post.user %>
+    <strong><%= post_details(post.user, post.updated_at) %></strong>
+  <% end %>
+  <p>
+    <%= post.body.truncate(300, omission: '... ') %>
+    <%= post.body.length > 300 ? link_to("Read More", post) : '' %>
+  </p>
+<% end %>

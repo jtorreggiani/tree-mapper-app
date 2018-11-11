@@ -1,14 +1,13 @@
 # Controller for rendering posts related pages
 class PostsController < ApplicationController
+  before_action :filter_posts, only: %i[index]
   before_action :set_post, only: %i[show edit update destroy]
 
   # lists all posts
   # @api public
-  # @example GET /posts
+  # @example GET /posts?query=dope
   # @return renders index
-  def index
-    @posts = Post.all
-  end
+  def index; end
 
   # renders an individual post
   # @api public
@@ -86,15 +85,35 @@ class PostsController < ApplicationController
   # @example set_p
   # @return [Record] post object
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.includes(:user).find(params[:id])
+  end
+
+  # sets filters posts and sets @posts instance variable
+  # @api private
+  # @example filter_posts
+  # @return [Array]
+  def filter_posts
+    @posts = if query_param
+               Post.search(query_param).first(10)
+             else
+               Post.last(10)
+             end
+  end
+
+  # gets the query string out of the params
+  # @api private
+  # @example query_param
+  # @return [String] query string
+  def query_param
+    params[:query]
   end
 
   # Never trust parameters from the internet, only allow the white list through
   # @api private
-  # @param params [Hash] {title, body}
+  # @param params [Object] the request parameters
   # @example post_params
   # @return [Record] post param
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body).merge(user_id: current_user.id)
   end
 end
