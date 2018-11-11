@@ -25,6 +25,7 @@ require 'rails_helper'
 
 # rubocop:disable Metrics/BlockLength
 RSpec.describe PostsController, type: :controller do
+  render_views
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
@@ -34,6 +35,10 @@ RSpec.describe PostsController, type: :controller do
 
   let(:invalid_attributes) do
     { title: nil, body: 'Example body' }
+  end
+
+  let(:other_attributes) do
+    { title: 'other title', body: 'other body' }
   end
 
   let(:user) { create_user('John Smith') }
@@ -50,6 +55,14 @@ RSpec.describe PostsController, type: :controller do
       Post.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
+    end
+
+    it 'handles simple queries' do
+      Post.create! valid_attributes
+      Post.create! other_attributes
+
+      get :index, params: { query: 'Example' }, session: valid_session
+      expect(response.body).to match(/Example/)
     end
   end
 

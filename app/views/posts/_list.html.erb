@@ -7,7 +7,7 @@
     <% end %>
   </h2>
   <% if post.user %>
-    <strong><%= post.user.name %> | <%= post.updated_at.strftime('%b %-d') %></strong>
+    <strong><%= post_details(post.user, post.updated_at) %></strong>
   <% end %>
   <p>
     <%= post.body.truncate(300, omission: '... ') %>

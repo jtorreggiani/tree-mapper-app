@@ -7,8 +7,7 @@ class PostsController < ApplicationController
   # @api public
   # @example GET /posts?query=dope
   # @return renders index
-  def index
-  end
+  def index; end
 
   # renders an individual post
   # @api public
@@ -91,10 +90,10 @@ class PostsController < ApplicationController
 
   def filter_posts
     @posts = if query_param
-      Post.search(query_param).first(10)
-    else
-      Post.last(10)
-    end
+               Post.search(query_param).first(10)
+             else
+               Post.last(10)
+             end
   end
 
   def query_param

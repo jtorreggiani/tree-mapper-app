@@ -63,7 +63,7 @@ def sign_in_user(full_name)
 end
 
 def create_fake_posts(number)
-  number.to_i.times do |n|
+  number.to_i.times do
     Post.create!(title: Faker::Lorem.sentence,
                  body: Faker::Lorem.paragraphs(2))
   end

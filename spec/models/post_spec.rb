@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe Post, type: :model do
   it 'responds title and body' do
     post = Post.new
@@ -28,7 +29,13 @@ RSpec.describe Post, type: :model do
   end
 
   it 'has one after adding one' do
-    Post.create(title: 'example title', body: 'example body')
+    Post.create!(title: 'example title', body: 'example body')
     expect(Post.count).to eq 1
   end
+
+  it 'handles basic searching' do
+    Post.create!(title: 'my very long complex post title', body: '')
+    expect(Post.search('complex').count).to eq 1
+  end
 end
+# rubocop:enable Metrics/BlockLength
