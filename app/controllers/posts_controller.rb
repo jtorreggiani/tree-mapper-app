@@ -94,9 +94,9 @@ class PostsController < ApplicationController
   # @return [Array]
   def filter_posts
     @posts = if query_param
-               Post.search(query_param).first(10)
+               Post.includes(:user).search(query_param).first(10)
              else
-               Post.last(10)
+               Post.includes(:user).last(10)
              end
   end
 
@@ -114,6 +114,6 @@ class PostsController < ApplicationController
   # @example post_params
   # @return [Record] post param
   def post_params
-    params.require(:post).permit(:title, :body).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :body, :user_id).merge(user_id: current_user.id)
   end
 end
