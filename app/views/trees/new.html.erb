@@ -1,0 +1,14 @@
+<%= form_for @tree do |form| %>
+  <%= form.label :latitude, class: 'geo-label' %>
+  <%= form.number_field :latitude, class: 'geo-field', step: :any %>
+  <%= form.label :longitude, class: 'geo-label' %>
+  <%= form.number_field :longitude, class: 'geo-field', step: :any %>
+  <!-- <a id="map-link" target="_blank" href="#">Google Maps</a> -->
+  <button type="button" id="update-coordinates">Update Coordinates</button>
+  <iframe id="map-link" width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=plymouth%20uk&t=k&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+  <div class="box">
+    <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg', class: 'inputfile' %>
+    <%= form.label :image, class: 'image-label' %>
+  </div>
+  <%= form.submit 'Upload', class: 'upload-button' %>
+<% end %>

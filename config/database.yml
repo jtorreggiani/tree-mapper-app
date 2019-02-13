@@ -8,17 +8,17 @@ default: &default
 
 development:
   <<: *default
-  database: skeleton_development
+  database: tree_mapper_app_development
 
 test: &test
   <<: *default
-  database: skeleton_test
+  database: tree_mapper_app_test
 
 cucumber:
   <<: *test
 
 production:
   <<: *default
-  database: <%= ENV['SKELETON_DATABASE_NAME'] %>
-  username: <%= ENV['SKELETON_DATABASE_USERNAME'] %>
-  password: <%= ENV['SKELETON_DATABASE_PASSWORD'] %>
+  database: <%= ENV['tree_mapper_app_DATABASE_NAME'] %>
+  username: <%= ENV['tree_mapper_app_DATABASE_USERNAME'] %>
+  password: <%= ENV['tree_mapper_app_DATABASE_PASSWORD'] %>

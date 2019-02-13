@@ -1,6 +1,6 @@
-# Skeleton
+# TreeMapperApp
 
-Skeleton rails project to make scaffolding web projects.
+TreeMapperApp rails project to make scaffolding web projects.
 
 ## Installation
 

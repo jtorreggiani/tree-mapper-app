@@ -13,15 +13,18 @@ Rails.application.routes.draw do
              }
 
   resources :posts
+  resources :trees
 
   # Route for the user lists page
   get 'users', to: 'users/list#index', as: 'users_list'
 
   get 'search', to: 'search#index'
 
+  get 'camera', to: 'camera#index'
+
   # Route for a user's profile
   get '/:username', to: 'users/profile#show', as: 'profile'
 
   # Route for the root path of the application
-  root 'welcome#index'
+  root 'trees#index'
 end
