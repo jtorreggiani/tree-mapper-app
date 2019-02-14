@@ -1,13 +1,12 @@
-<%= link_to "Add Tree", new_tree_path, class: 'add-tree-button' %>
-
-<% @trees.each do |tree| %>
-  <div>
-    <%= image_tag tree.image, class: 'tree-image' %>
-    <br/>
-    latitude: <%= tree.latitude %>
-    <br/>
-    longitude:<%= tree.longitude %>
-    <br/>
-  </div>
-
-<% end %>
+<div class="container">
+  <% @trees.each do |tree| %>
+    <div class="col-sm">
+      <%= image_tag tree.image, class: 'tree-image' %>
+      <br/>
+      latitude: <%= tree.latitude %>
+      <br/>
+      longitude:<%= tree.longitude %>
+      <br/>
+    </div>
+  <% end %>
+</div>

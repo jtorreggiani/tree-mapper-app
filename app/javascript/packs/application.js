@@ -25,7 +25,7 @@ function geo_error() {
 var geo_options = {
   enableHighAccuracy: true,
   maximumAge        : 1000,
-  timeout           : 5000
+  timeout           : 1000
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {

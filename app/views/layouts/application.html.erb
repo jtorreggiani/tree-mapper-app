@@ -11,11 +11,34 @@
   </head>
 
   <body>
-    <% flash.each do |type, message| %>
-      <div id="<%= type %>" class="alert" role="alert">
-        <%= message %>
-      </div>
-    <% end %>
-    <%= yield %>
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <%= link_to "Tree Mapper", root_path, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link_to "Add Tree", new_tree_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Trees List", trees_path, class: "nav-link" %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <% flash.each do |type, message| %>
+        <div id="<%= type %>" class="alert" role="alert">
+          <%= message %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
   </body>
 </html>

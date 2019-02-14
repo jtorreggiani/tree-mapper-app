@@ -41,6 +41,12 @@ gem 'webpacker', '~> 3.5'
 # Use devise for authentication
 gem 'devise'
 
+gem 'bootstrap', '~> 4.3.1'
+
+gem 'jquery-rails'
+
+gem 'popper_js', '~> 1.14.5'
+
 group :development, :test do
   # Database cleaner
   gem 'database_cleaner'

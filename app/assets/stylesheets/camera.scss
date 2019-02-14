@@ -1,84 +1,84 @@
-video { border: 1px solid #ccc; display: block; margin: 0 0 20px 0; }
-#canvas { margin-top: 20px; border: 1px solid #ccc; display: block; }
-
-.tree-image { width: 100% }
-
-@media (min-width: 858px) {
-    html {
-        font-size: 12px;
-    }
-}
-
-@media (min-width: 780px) {
-    html {
-        font-size: 11px;
-    }
-}
-
-@media (min-width: 702px) {
-    html {
-        font-size: 10px;
-    }
-}
-
-@media (min-width: 724px) {
-    html {
-        font-size: 9px;
-    }
-}
-
-@media (max-width: 623px) {
-    html {
-        font-size: 8px;
-    }
-}
-
-.add-tree-button, .upload-button {
-  width: 100%;
-  display: block;
-  text-align: center;
-  border: none;
-  font-size: 5em;
-  padding: none;
-  background: green;
-  padding-top: .5em;
-  padding-bottom: .5em;
-  text-decoration: none;
-}
-
-.geo-field {
-  width: 100%;
-  font-size: 3.5em;
-}
-
-.inputfile {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    // overflow: hidden;
-    position: absolute;
-    z-index: -1;
-}
-
-.inputfile + label {
-    width: 100%;
-    text-align: center;
-    font-size: 5em;
-    cursor: pointer;
-    display: inline-block;
-    padding-top: 0.9em;
-    padding-bottom: 0.9em;
-}
-
-.box {
-	background-color: #dfc8ca;
-}
-
-// .inputfile:focus + label,
-// .inputfile + label:hover {
-//   background-color: red;
+// video { border: 1px solid #ccc; display: block; margin: 0 0 20px 0; }
+// #canvas { margin-top: 20px; border: 1px solid #ccc; display: block; }
+//
+// .tree-image { width: 100% }
+//
+// @media (min-width: 858px) {
+//     html {
+//         font-size: 12px;
+//     }
 // }
-
+//
+// @media (min-width: 780px) {
+//     html {
+//         font-size: 11px;
+//     }
+// }
+//
+// @media (min-width: 702px) {
+//     html {
+//         font-size: 10px;
+//     }
+// }
+//
+// @media (min-width: 724px) {
+//     html {
+//         font-size: 9px;
+//     }
+// }
+//
+// @media (max-width: 623px) {
+//     html {
+//         font-size: 8px;
+//     }
+// }
+//
+// .add-tree-button, .upload-button {
+//   width: 100%;
+//   display: block;
+//   text-align: center;
+//   border: none;
+//   font-size: 5em;
+//   padding: none;
+//   background: green;
+//   padding-top: .5em;
+//   padding-bottom: .5em;
+//   text-decoration: none;
+// }
+//
+// .geo-field {
+//   width: 100%;
+//   font-size: 3.5em;
+// }
+//
+// .inputfile {
+//     width: 0.1px;
+//     height: 0.1px;
+//     opacity: 0;
+//     // overflow: hidden;
+//     position: absolute;
+//     z-index: -1;
+// }
+//
 // .inputfile + label {
-// 	cursor: pointer; /* "hand" cursor */
+//     width: 100%;
+//     text-align: center;
+//     font-size: 5em;
+//     cursor: pointer;
+//     display: inline-block;
+//     padding-top: 0.9em;
+//     padding-bottom: 0.9em;
 // }
+//
+// .box {
+// 	background-color: #dfc8ca;
+// }
+//
+// // .inputfile:focus + label,
+// // .inputfile + label:hover {
+// //   background-color: red;
+// // }
+//
+// // .inputfile + label {
+// // 	cursor: pointer; /* "hand" cursor */
+// // }

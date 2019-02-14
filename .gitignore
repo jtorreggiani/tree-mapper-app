@@ -45,3 +45,4 @@ yarn-debug.log*
 notes
 
 .DS_Store
+/config/secrets
