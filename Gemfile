@@ -92,3 +92,5 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'rename'
+
+gem "google-cloud-storage", "~> 1.11", require: false
