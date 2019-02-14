@@ -29,23 +29,14 @@ var geo_options = {
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  if (window.location.href.match('/$')) {
-    const alertButtonElement = document.getElementById('alert-button')
-
-    alertButtonElement.onclick = function() {
-      alert('Example Alert')
-    }
-  }
-
   if (window.location.href.match('/trees/new')) {
     const updateLocationButton = document.getElementById('update-coordinates')
     if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options)
       updateLocationButton.onclick = function() {
         navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options)
       }
     } else {
-      /* geolocation IS NOT available */
+      alert('Geo location is not available')
     }
   }
 })
